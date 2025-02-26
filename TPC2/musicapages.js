@@ -37,7 +37,7 @@ export function genMainPage(data){
     return pagHTML
 }
 
-export function genAlunosPage(lreps, data){
+export function genAlunosPage(lreps, curso, instrumento, data){
     var pagHTML = `
     <!DOCTYPE html>
     <html>
@@ -49,7 +49,7 @@ export function genAlunosPage(lreps, data){
         <body>
             <div class="w3-card-4">
                 <header class="w3-container w3-red">
-                    <h1>Lista de Alunos</h1>
+                    <h1>Lista de Alunos${curso!=null ? ' do Curso com ID: '  + curso: ""}${instrumento!=null ? ' que tocam: '  + instrumento: ""}</h1>
                 </header>
 
                 <div class="w3-container">
@@ -116,7 +116,7 @@ export function genCursosPage(lreps, data){
     lreps.forEach(rep => {
         pagHTML += `
         <tr>
-            <td>${rep.id}</td>
+            <td><a href="/cursos/${rep.id}">${rep.id}</a></td>
             <td>${rep.designacao}</td>
             <td>${rep.duracao}</td>
             <td>${rep.instrumento.id}</td>
@@ -164,7 +164,7 @@ export function genInstrumentosPage(lreps, data){
         pagHTML += `
         <tr>
             <td>${rep.id}</td>
-            <td>${rep["#text"]}</td>
+            <td><a href="/instrumentos/${rep["#text"]}">${rep["#text"]}</a></td>
         </tr>
         `
     });

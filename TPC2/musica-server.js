@@ -54,6 +54,36 @@ createServer(function (req, res) {
                 res.end('<p>Erro na obtenção de dados: ' + erro + '</p>')
             })
     }
+    else if(req.url.match(/\/cursos\/[%a-zA-Z0-9]+$/)){
+        var curso = req.url.split('/')[2]
+        curso = curso.replace('%20', ' ')
+        axios.get(`http://localhost:3000/alunos?curso=` + curso)
+            .then(function(resp){
+                res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+                res.write(genAlunosPage(resp.data, curso, null, d));
+                res.end();
+            })
+            .catch(erro => {
+                console.log("Erro: " + erro)
+                res.writeHead(500, {'Content-Type': 'text/html; charset=utf-8'})
+                res.end('<p>Erro na obtenção de dados: ' + erro + '</p>')
+            })
+    }
+    else if(req.url.match(/\/instrumentos\/[%a-zA-Z0-9]+$/)){
+        var instrumento = req.url.split('/')[2]
+        instrumento = instrumento.replace('%20', ' ')
+        axios.get(`http://localhost:3000/alunos?instrumento=` + instrumento)
+            .then(function(resp){
+                res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+                res.write(genAlunosPage(resp.data, null, instrumento, d));
+                res.end();
+            })
+            .catch(erro => {
+                console.log("Erro: " + erro)
+                res.writeHead(500, {'Content-Type': 'text/html; charset=utf-8'})
+                res.end('<p>Erro na obtenção de dados: ' + erro + '</p>')
+            })
+    }
     else if(req.url.match(/w3\.css$/)){
         readFile("w3.css", function(erro, dados){
             if(erro){
