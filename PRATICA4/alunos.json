@@ -3,11 +3,7 @@
     {
       "id": "A100893",
       "nome": "Luís de Castro Rodrigues Caetano",
-      "git": "undefined",
-      "tpc1": "1",
-      "tpc2": "1",
-      "tpc3": "1",
-      "tpc7": "1"
+      "git": "undefined"
     },
     {
       "id": "A100701",
@@ -35,14 +31,9 @@
       "git": "https://github.com/joodanic/EngWeb2024"
     },
     {
-      "id": "A95345",
-      "nome": "Eduardo Miguel Pacheco Silva",
-      "git": "https://github.com/dud4s/EngWeb2024"
-    },
-    {
       "id": "A100660",
-      "nome": "Francisco Macedo Ferreira",
-      "git": "https://github.com/chicoferreira/EngWeb2024"
+      "nome": "Francisco Ferreira",
+      "gitlink": ""
     },
     {
       "id": "A96208",
@@ -53,13 +44,6 @@
       "id": "A97455",
       "nome": "Henrique Nuno Marinho Malheiro",
       "git": "https://github.com/a97455/EngWeb2024"
-    },
-    {
-      "Id": "ewewfwewf",
-      "nome": "eccqcqqc",
-      "git": "cqecqcqecqec",
-      "tpc5": "1",
-      "id": "qN6q5EU"
     }
   ]
 }
