@@ -1,16 +1,16 @@
 {
   "filmes": [
     {
-      "id": 4,
+      "year": "2000",
       "title": "The 6th Day",
-      "year": 2000,
       "cast": [
         "Arnold Schwarzenegger",
-        "Robert Duvall"
+        "Brad Pitt"
       ],
       "genres": [
         "Science Fiction"
-      ]
+      ],
+      "id": 4
     },
     {
       "id": 5,

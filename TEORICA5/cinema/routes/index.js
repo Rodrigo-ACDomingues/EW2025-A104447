@@ -32,7 +32,35 @@ router.get('/filmes/delete/:id', function(req, res) {
     })
 })
 
+router.get('/filmes/edit/:id', function(req, res) {
+  axios.get('http://localhost:3000/filmes/' + req.params.id)
+    .then(resp => {
+      res.status(200).render('editFilme', {'filme' : resp.data})
+    })
+    .catch(erro => {
+      res.status(500).render('error', {'error' : erro})
+    })
+})
 
+router.post('/filmes/edit/:id', function(req, res) {
+
+  if (!Array.isArray(req.body.cast)) {
+    req.body.cast = [req.body.cast];
+  }
+
+  if (!Array.isArray(req.body.genres)) {
+    req.body.genres = [req.body.genres];
+  }
+
+  axios.put('http://localhost:3000/filmes/' + req.params.id, req.body)
+    .then(resp => {
+      console.log(resp.data)
+      res.status(200).redirect('/filmes')
+    })
+    .catch(erro => {
+      res.status(500).render('error', {'error' : erro})
+    })
+})
 
 module.exports = router;
 
