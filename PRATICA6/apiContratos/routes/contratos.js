@@ -22,6 +22,14 @@ router.get('/', function(req, res, next) {
   }
 });
 
+// GET Contrato by ID
+
+router.get('/:id', function(req, res, next) {
+  contrato.getContratosById(req.params.id)
+    .then(data => res.status(200).jsonp(data))
+    .catch(erro => res.status(500).jsonp(erro))
+});
+
 // GET entidades ordenadas alfabeticamente
 
 router.get('/entidades', function(req, res, next) {
@@ -38,27 +46,11 @@ router.get('/tipos', function(req, res, next) {
     .catch(erro => res.status(500).jsonp(erro))
 });
 
-// GET Contrato by ID
-
-router.get('/:id', function(req, res, next) {
-  contrato.getContratosById(req.params.id)
-    .then(data => res.status(200).jsonp(data))
-    .catch(erro => res.status(500).jsonp(erro))
-});
-
 // POST inserir novo contrato
 
 router.post('/', function(req, res, next) {
   contrato.insert(req.body)
     .then(data => res.status(201).jsonp(data))
-    .catch(erro => res.status(500).jsonp(erro))
-});
-
-// PUT contrato
-
-router.put('/:id', function(req, res, next) {
-  contrato.update(req.body, req.params.id)
-    .then(data => res.status(200).jsonp(data))
     .catch(erro => res.status(500).jsonp(erro))
 });
 
@@ -70,5 +62,13 @@ router.delete('/:id', function(req, res, next) {
     .catch(erro => res.status(500).jsonp(erro))
 });
 
+// PUT contrato
+
+router.put('/:id', function(req, res, next) {
+  contrato.update(req.body, req.params.id)
+    .then(data => res.status(200).jsonp(data))
+    .catch(erro => res.status(500).jsonp(erro))
+});
+ 
 
 module.exports = router;

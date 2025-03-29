@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  doctype html
+  html
+    head
+      title Entidade: #{entidade} --- NIPC #{nipc}
+    body
+      h1 Entidade: #{entidade} --- NIPC: #{nipc}
+      h2 Contratos
+      table(class="w3-table w3-bordered w3-striped w3-hoverable")
+        thead
+          tr
+            th ID
+            th Objeto
+            th Data
+            th Preço
+        tbody
+          each contrato in contratos
+            tr
+              td: a(href=`/contratos/${contrato.id}`) #{contrato.id}
+              td #{contrato.objectoContrato}
+              td #{contrato.dataCelebracaoContrato}
+              td #{contrato.precoContratual}
+      p Total dos contratos: #{total}
+      a(href="/contratos") Voltar

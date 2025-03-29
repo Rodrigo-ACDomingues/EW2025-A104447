@@ -39,10 +39,10 @@ module.exports.insert = contr => {
     return contrToSave.save()
 }
 
-module.exports.update = (contr, id) => {
-    return contrato.findByIdAndUpdate(id, contr, {new : true}).exec()
-}
-
 module.exports.delete = id => {
     return contrato.findByIdAndDelete(id).exec()
+}
+
+module.exports.update = (contr, id) => {
+    return contrato.findByIdAndUpdate(id, contr, {new : true}).exec()
 }

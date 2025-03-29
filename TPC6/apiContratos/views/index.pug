@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 Lista de Contratos
+  table(class="w3-table w3-bordered w3-striped w3-hoverable")
+    thead
+      tr
+        th ID
+        th Objeto
+        th Data 
+        th Preço 
+        th NIPC 
+        th Entidade
+    tbody
+      each contrato in contratos
+        tr
+          td: a(href=`/contratos/${contrato.id}`, class="w3-text-blue") #{contrato.id}
+          td #{contrato.objectoContrato}
+          td #{contrato.dataCelebracaoContrato}
+          td #{contrato.precoContratual}
+          td: a(href=`/contratos/entidades/${contrato.NIPC_entidade_comunicante}`, class="w3-text-blue") #{contrato.NIPC_entidade_comunicante}
+          td #{contrato.entidade_comunicante}

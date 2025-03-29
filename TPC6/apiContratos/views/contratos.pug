@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  doctype html
+  html
+    head
+      title Contrato #{contrato.id}
+    body
+      h1 Detalhes do Contrato #{contrato.id}
+      table(class="w3-table w3-bordered w3-striped w3-hoverable")
+        tbody
+          tr
+            th Objeto
+            td #{contrato.objectoContrato}
+          tr
+            th Data
+            td #{contrato.dataCelebracaoContrato}
+          tr
+            th Preço
+            td #{contrato.precoContratual} €
+          tr
+            th NIPC
+            td: a(href=`/contratos/entidades/${contrato.NIPC_entidade_comunicante}`) #{contrato.NIPC_entidade_comunicante}
+          tr
+            th Entidade
+            td #{contrato.entidade_comunicante}
+      a(href="/contratos") Voltar
