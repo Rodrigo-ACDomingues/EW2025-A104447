@@ -22,7 +22,7 @@ module.exports.getContratosByEntidade = entidade => {
     return contrato.find({entidade_comunicante : entidade}).exec()
 }
 
-module.exports.getContratosByTipo = (tipo) => {
+module.exports.getContratosByTipo = tipo => {
     return contrato.find({tipoprocedimento : tipo}).exec()
 }
 
